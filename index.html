@@ -1,0 +1,47 @@
+<html>
+
+    <style>
+     button {
+      width: 9rem;
+      height: 36px;
+      background-color: darkblue;
+      color: white;
+     }
+
+     input {
+       margin-top: 10px;
+       height: 33px;
+       font-family: 12 sans-serif;
+       font-size: 18px;
+  
+     }
+    
+     </style>
+   
+     <head>
+      <script type="text/javascript" src="qrcode.js"></script>
+     </head>
+
+     <body> 
+      <input type="text" id="valor" value="" placeholder="Digite o nome da pagina...">
+      <button onClick="createQrCode()">Gerar Qr Code</button>
+      <div id="qrcode"></div>
+     </body>
+     <script>
+
+     function createQrCode() 
+     {
+       var userInput = document.getElementById('valor').value;
+
+       var qrcode = new QRCode("qrcode", {
+          text: userInput,
+          width: 256,
+          height: 256,
+          colorDark: "black",
+          colorLight: "white",
+          correctLevel: QRCode.CorrectLevel.H
+       });
+     }
+
+    </script>
+</html>
